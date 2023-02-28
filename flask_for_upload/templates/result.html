@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Top repos</title>
+	<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+  
+</head>
+<body>
+    <h1 align="center"> Top {{n}} repositories of {{org_name}} </h1>
+    <table>
+        <tr>
+          <th>S.No.</th>
+          <th>Organisation</th>
+          <th>URL</th>
+          <th>Forks</th>
+          <th></th>
+        </tr>
+	{% for element in elements %}
+    <tr>
+        <td>{{element[0]}} </td>
+        <td> {{element[1]}} </td>
+        <td><a href=https://github.com/{{org_name}}/{{element[1]}}>(Link)</a></td>
+        <td>{{element[2]}} forks</td>
+        <!-- {% set strin=' url_for("display_element", element=element[0],ORG_NAME=org_name) ' %}
+        <td><button onclick="window.location.href={{strin}}">View {{m}} Oldest Forks</button></td> -->
+
+        <td><button onclick="window.location.href='{{ url_for('display_element', element=element[0]) }}'">View {{m}} Oldest Forks</button></td>
+         </tr>
+	{% endfor %}
+</body>
+</html>
