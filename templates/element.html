@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+	<title>Forks</title>
+    
+</head>
+<body>
+    <h2 align="center"> {{text}} </h1>
+    <table>
+        <tr>
+          <th>S.No.</th>
+          <th>Username of forker</th>
+          <th>URL</th>
+          <th>Fork creation time</th>
+          <th>Fork creation date</th>
+        </tr>
+        <!-- {% set i=1%} -->
+        {% for element in elements %}
+        <tr>
+            <td>{{loop.index}}</td>
+            <td> {{element[0]}} </td> 
+            <td><a href=https://github.com/{{element[0]}}>  Link </a> </td>
+            <td> {{element[1]}} </td>
+               <td> {{element[2]}}  </td>
+        
+        </tr>
+        
+        {% endfor %}
+    
+    </table>
+</body>
+</html>
