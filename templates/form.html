@@ -20,7 +20,6 @@
         }
 
         input {
-            /* display: inline-block; */
             font-size: 4vh;
             padding: 1vw;
             float: right;
@@ -47,7 +46,6 @@
 
         label {
             display: inline-block;
-            /* width: 50vw; */
             width: fit-content;
             padding: 1vw;
             margin: 1vh 5vw;
@@ -80,7 +78,7 @@
             /* padding: 5px 9px; */
             /* margin: auto; */
             width: fit-content;
-            clear:right;
+            clear: right;
             background-color: red;
             color: white;
             /* display: inline-block; */
@@ -93,15 +91,15 @@
         }
 
         @media only screen and (min-width: 573) {
-            body {
+            /* body {
 
                 background-color: blue;
-            }
+            } */
 
-            input {
+            /* input {
                 margin: 1vh auto auto auto;
 
-            }
+            } */
 
             label {
                 margin: 1vh 5vw;
@@ -110,9 +108,7 @@
 
 
         @media only screen and (max-width: 572px) {
-            input {
-                margin: 1vh auto 2vh 10vw;
-            }
+
 
 
             label {
@@ -156,35 +152,35 @@
 
     </div>
     <script>
-        
+
         let lab1 = document.getElementById("lab1");
-        
+
         let lab2 = document.getElementById("lab2");
         let lab3 = document.getElementById("lab3");
-        
+
         let Width = lab2.offsetWidth;
-        
-        in1=document.getElementById("org_name");
-        in2=document.getElementById("n");
-        in3=document.getElementById("m");
-        
-        function resizee(){
-             let screenwidth=window.innerWidth;
+
+        in1 = document.getElementById("org_name");
+        in2 = document.getElementById("n");
+        in3 = document.getElementById("m");
+
+        function resizee() {
+            let screenwidth = window.innerWidth;
             //  screenwidth=screenwidth*0.15;
-            
-        if (Width*2+0.15*screenwidth<screenwidth){
-            Width=0.4*screenwidth;
-        }lab1.style.width = `${Width}px`;
-        lab2.style.width = `${Width}px`;
-        lab3.style.width = `${Width}px`;
-        in1.style.width = `${Width}px`;
-        in2.style.width = `${Width}px`;
-        in3.style.width = `${Width}px`;
+
+            if (Width * 2 + 0.15 * screenwidth < screenwidth) {
+                Width = 0.4 * screenwidth;
+            } lab1.style.width = `${Width}px`;
+            lab2.style.width = `${Width}px`;
+            lab3.style.width = `${Width}px`;
+            in1.style.width = `${Width}px`;
+            in2.style.width = `${Width}px`;
+            in3.style.width = `${Width}px`;
         }
         resizee();
         window.onresize = resizee;
         //     inp.style.float = "right";
-            
+
 
     </script>
 </body>
