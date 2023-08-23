@@ -46,7 +46,7 @@ def display_element(element):
     top_forks=[]
     text='The  oldest forks are:'
 
-    #in case the get request fails due to excessive number or forks
+    #in case the get request fails due to excessive number of forks
     if response.status_code!=200 :
         text='Sorry! Too many forks to sort by oldest! Following are the newest forks instead:'
         params = {'sort': 'newest', 'per_page': m}
@@ -81,9 +81,14 @@ def  getRepo():
     
     m=request.form.get('m')
     # Get the organization object
-    n=int(n)
-
-    m=int(m)
+    try:
+        n=int(n)
+    except:
+        return render_template('error.html',text='Invalid number of repos (n) entered! Please enter a positive number.')
+    try:
+        m=int(m)
+    except:
+        return render_template('error.html',text='Invalid number of forks (m) entered! Please enter a positive number.')
     if (n<=0):
         return render_template('error.html',text='Invalid number of repos entered! Please enter a positive number.')
     if (m<=0):
@@ -115,5 +120,6 @@ def  getRepo():
 
 if __name__ == '__main__':
     # turn this off tk
+    app.config['DEBUG'] =False
     app.run(debug=False)
     

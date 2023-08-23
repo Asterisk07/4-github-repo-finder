@@ -6,6 +6,7 @@
   
 </head>
 <body>
+  <span class="res">
     <h1 align="center"> Top {{n}} repositories of {{org_name}} </h1>
     <table>
         <tr>
@@ -26,6 +27,8 @@
 
         <td><button onclick="window.location.href='{{ url_for('display_element', element=element[0]) }}'">View {{m}} Oldest Forks</button></td>
          </tr>
-	{% endfor %}
+         {% endfor %}
+        </span>
+        
 </body>
 </html>
