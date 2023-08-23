@@ -114,5 +114,6 @@ def  getRepo():
     return render_template('result.html',org_name=ORG_NAME,m=m,n=n,elements=sorted_repos)
 
 if __name__ == '__main__':
-    app.run(debug=False)
+    # turn this off tk
+    app.run(debug=True)
     

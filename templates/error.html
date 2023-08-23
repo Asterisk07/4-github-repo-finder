@@ -5,28 +5,37 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style_error.css') }}">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
     <title>Error</title>
-    <style>
-        * {
-            vertical-align: top;
-            /* margin: 0; */
-            box-sizing:border-box;
-            /* margin-top: 0; */
-            /* padding: 0; */
-        }
-        h1{
-           color: red;
-        }
-    </style>
+    
 </head>
 
 <body >
-    <h1> {{text}}</h1>
-    <img src="{{ url_for('static', filename='sad2.png') }}" alt="Apologies for the inconvenience">
-    <!-- <img src="{{ url_for('static', filename='sad.png') }}" alt="Apologies for the inconvenience"> -->
+    <div>
+        <!-- <span class='error-num'>5</span> -->
+        <div class='eye'></div>
+        <div class='eye'></div>
+        <span class='error-num'>PS</span>
+        <p class='sub-text'>{{text}}</p>
+        <a href='{{ url_for('display') }}'>Go back</a>
+      </div>
+    
     <script>
-        
-    </script>
+        $('body').mousemove(function(event) {
+  var e = $('.eye');
+  var x = (e.offset().left) + (e.width() / 2);
+  var y = (e.offset().top) + (e.height() / 2);
+  var rad = Math.atan2(event.pageX - x, event.pageY - y);
+  var rot = (rad * (180 / Math.PI) * -1) + 180;
+  e.css({
+    '-webkit-transform': 'rotate(' + rot + 'deg)',
+    'transform': 'rotate(' + rot + 'deg)'
+  });
+});
+
+    </script> 
 </body>
 
 </html>

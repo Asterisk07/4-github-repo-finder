@@ -1,4 +1,46 @@
-table td,button {
+
+
+        *{
+            padding: 2px;
+        }
+        table {
+  border-collapse: collapse;
+  margin: 25px 0;
+  font-size: 0.9em;
+  font-family: sans-serif;
+  min-width: 400px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+  border: 7px solid #dddddd; /* Set the table border to 7px */
+}
+
+th {
+  background-color: #009879;
+  color: #ffffff;
+  text-align: left;
+  border: 7px solid #dddddd; /* Set the header cell border to 7px */
+}
+/* body {
+  background-color: rgb(51, 51, 51);
+} */
+td {
+  border: 4px  solid #dddddd; /* Set the regular cell border to 7px */
+}
+
+/* th {
+  border-bottom-color: black;
+} */
+
+tbody tr {
+  border-bottom: 1px solid #dddddd;
+}
+
+table, h2 {
+  margin: 5vh auto;
+}
+    
+    
+/* ---------------------- */
+/* table td,button {
     border: 2px solid black;
     font-size:2vw; 
   }
@@ -18,7 +60,26 @@ table td,button {
   
   a{
     color: blue;
+} */
+/* --------------------- */
+/* table th{
+  background-color: #009879;
+  color: #ffffff;
+  text-align: left;
+  border: 1px solid #dddddd;
+}
+tbody tr {
+  border-bottom: 1px solid #dddddd;
+  border: 10px solid #dddddd;
+}
+table{
+  border-collapse: collapse;
+    margin: 25px 0;
+    font-size: 0.9em;
+    font-family: sans-serif;
+    min-width: 400px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
 }
 table,h2{
     margin: 5vh auto;
-}
+} */

@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Github Repo and Fork Getter</title>
+
+    <style>
+        *,
+        html {
+            box-sizing: border-box;
+
+            margin: 0;
+            padding: 0;
+        }
+
+        label {
+            background-color: green;
+            font-size: 4vh;
+
+        }
+
+        input {
+            font-size: 4vh;
+            padding: 1vw;
+            float: right;
+            margin: 1vh 5vh;
+
+        }
+
+        .right {
+            text-align: right;
+        }
+
+        h1 {
+            font-size: 9vh;
+        }
+
+        .red {
+            color: red;
+        }
+
+        .blue {
+            color: blue;
+            margin: 3vh;
+        }
+
+        label {
+            display: inline-block;
+            width: fit-content;
+            padding: 1vw;
+            margin: 1vh 5vw;
+
+
+        }
+
+        h2 {
+            font-size: 6vh;
+        }
+
+        body {
+            background-color: yellow;
+        }
+
+        header {
+            text-align: center;
+            background-color: black;
+            padding: 5vh;
+            margin: 0;
+        }
+
+        h3 {
+            margin: 4vh 2vh;
+            font-size: 3vh;
+        }
+
+        .sub {
+            /* float: bottom; */
+            /* padding: 5px 9px; */
+            /* margin: auto; */
+            width: fit-content;
+            clear: right;
+            background-color: red;
+            color: white;
+            /* display: inline-block; */
+            font-size: 4vh;
+            /* align-items: center; */
+            position: relative;
+            /* left: 50%; */
+            /* left: 50%; */
+
+        }
+
+        @media only screen and (min-width: 573) {
+            /* body {
+
+                background-color: blue;
+            } */
+
+            /* input {
+                margin: 1vh auto auto auto;
+
+            } */
+
+            label {
+                margin: 1vh 5vw;
+            }
+        }
+
+
+        @media only screen and (max-width: 572px) {
+
+
+
+            label {
+                margin: 1vh 10vw;
+            }
+        }
+
+        hr {
+            height: 2vh;
+            color: red
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+
+        <h1 class="red">Github Repo and Fork Getter</h1>
+    </header>
+
+    <h2 class='blue'>A web app to extract top repositories of a given organisation from github, and find oldest forks
+        among them.
+    </h2>
+    <div class="yellow">
+        <h3 class="right"><i> A web app by Ayushmaan Pandey</i></h3>
+        <hr>
+        <form method="POST" action="/result">
+
+            <tr>
+                <label for="org_name" id="lab1">Organization Name:</label>
+                <input class="in" type="text" id="org_name" name="org_name" required>
+            </tr><br><br>
+            <tr><label for="n" id="lab2">Number of Repositories (n) : </label>
+                <input class="in" type="text" id="n" name="n" required>
+            </tr><br><br>
+            <tr><label for="m" id="lab3">Number of Forks (m): </label>
+                <input class="in" type="text" id="m" name="m" required>
+            </tr><br><br>
+            <input type="submit" id="subm" value="Submit and Proceed →" class="sub">
+        </form>
+
+    </div>
+    <script>
+
+        let lab1 = document.getElementById("lab1");
+
+        let lab2 = document.getElementById("lab2");
+        let lab3 = document.getElementById("lab3");
+
+        let Width = lab2.offsetWidth;
+
+        in1 = document.getElementById("org_name");
+        in2 = document.getElementById("n");
+        in3 = document.getElementById("m");
+
+        function resizee() {
+            let screenwidth = window.innerWidth;
+            //  screenwidth=screenwidth*0.15;
+
+            if (Width * 2 + 0.15 * screenwidth < screenwidth) {
+                Width = 0.4 * screenwidth;
+            } lab1.style.width = `${Width}px`;
+            lab2.style.width = `${Width}px`;
+            lab3.style.width = `${Width}px`;
+            in1.style.width = `${Width}px`;
+            in2.style.width = `${Width}px`;
+            in3.style.width = `${Width}px`;
+        }
+        resizee();
+        window.onresize = resizee;
+        //     inp.style.float = "right";
+
+
+    </script>
+</body>
+
+</html>

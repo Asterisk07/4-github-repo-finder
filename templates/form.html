@@ -1,187 +1,171 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Github Repo and Fork Getter</title>
-
+    <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"> -->
     <style>
-        *,
-        html {
-            box-sizing: border-box;
+        *, *:before, *:after {
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
 
-            margin: 0;
-            padding: 0;
-        }
+body {
+  font-family: 'Nunito', sans-serif;
+  color: #384047;
+}
 
-        label {
-            background-color: green;
-            font-size: 4vh;
+form {
+  max-width: 300px;
+  margin: 10px auto;
+  padding: 10px 20px;
+  background: #f4f7f8;
+  border-radius: 8px;
+}
 
-        }
+h1 {
+  margin: 0 0 30px 0;
+  text-align: center;
+}
 
-        input {
-            font-size: 4vh;
-            padding: 1vw;
-            float: right;
-            margin: 1vh 5vh;
+input[type="text"],
+input[type="password"],
+input[type="date"],
+input[type="datetime"],
+input[type="email"],
+input[type="number"],
+input[type="search"],
+input[type="tel"],
+input[type="time"],
+input[type="url"],
+textarea,
+select {
+  background: rgba(255,255,255,0.1);
+  border: none;
+  font-size: 16px;
+  height: auto;
+  margin: 0;
+  outline: 0;
+  padding: 15px;
+  width: 100%;
+  background-color: #e8eeef;
+  color: #8a97a0;
+  box-shadow: 0 1px 0 rgba(0,0,0,0.03) inset;
+  margin-bottom: 30px;
+}
 
-        }
+input[type="radio"],
+input[type="checkbox"] {
+  margin: 0 4px 8px 0;
+}
 
-        .right {
-            text-align: right;
-        }
+select {
+  padding: 6px;
+  height: 32px;
+  border-radius: 2px;
+}
 
-        h1 {
-            font-size: 9vh;
-        }
+button {
+  padding: 19px 39px 18px 39px;
+  color: #FFF;
+  background-color: #4bc970;
+  font-size: 18px;
+  text-align: center;
+  font-style: normal;
+  border-radius: 5px;
+  width: 100%;
+  border: 1px solid #3ac162;
+  border-width: 1px 1px 3px;
+  box-shadow: 0 -1px 0 rgba(255,255,255,0.1) inset;
+  margin-bottom: 10px;
+}
 
-        .red {
-            color: red;
-        }
+fieldset {
+  margin-bottom: 30px;
+  border: none;
+}
 
-        .blue {
-            color: blue;
-            margin: 3vh;
-        }
+legend {
+  font-size: 1.4em;
+  margin-bottom: 10px;
+}
 
-        label {
-            display: inline-block;
-            width: fit-content;
-            padding: 1vw;
-            margin: 1vh 5vw;
+label {
+  display: block;
+  margin-bottom: 8px;
+}
 
+label.light {
+  font-weight: 300;
+  display: inline;
+}
 
-        }
+.number {
+  background-color: #5fcf80;
+  color: #fff;
+  height: 30px;
+  width: 30px;
+  display: inline-block;
+  font-size: 0.8em;
+  margin-right: 4px;
+  line-height: 30px;
+  text-align: center;
+  text-shadow: 0 1px 0 rgba(255,255,255,0.2);
+  border-radius: 100%;
+}
 
-        h2 {
-            font-size: 6vh;
-        }
+@media screen and (min-width: 480px) {
 
-        body {
-            background-color: yellow;
-        }
+  form {
+    max-width: 480px;
+  }
 
-        header {
-            text-align: center;
-            background-color: black;
-            padding: 5vh;
-            margin: 0;
-        }
+}
 
-        h3 {
-            margin: 4vh 2vh;
-            font-size: 3vh;
-        }
-
-        .sub {
-            /* float: bottom; */
-            /* padding: 5px 9px; */
-            /* margin: auto; */
-            width: fit-content;
-            clear: right;
-            background-color: red;
-            color: white;
-            /* display: inline-block; */
-            font-size: 4vh;
-            /* align-items: center; */
-            position: relative;
-            /* left: 50%; */
-            /* left: 50%; */
-
-        }
-
-        @media only screen and (min-width: 573) {
-            /* body {
-
-                background-color: blue;
-            } */
-
-            /* input {
-                margin: 1vh auto auto auto;
-
-            } */
-
-            label {
-                margin: 1vh 5vw;
-            }
-        }
-
-
-        @media only screen and (max-width: 572px) {
-
-
-
-            label {
-                margin: 1vh 10vw;
-            }
-        }
-
-        hr {
-            height: 2vh;
-            color: red
-        }
     </style>
 </head>
 
 <body>
-    <header>
-
+    <!-- <header class="bg-dark text-white text-center py-5">
         <h1 class="red">Github Repo and Fork Getter</h1>
-    </header>
+    </header> -->
 
-    <h2 class='blue'>A web app to extract top repositories of a given organisation from github, and find oldest forks
-        among them.
-    </h2>
-    <div class="yellow">
-        <h3 class="right"><i> A web app by Ayushmaan Pandey</i></h3>
-        <hr>
-        <form method="POST" action="/result">
-
-            <tr>
-                <label for="org_name" id="lab1">Organization Name:</label>
-                <input class="in" type="text" id="org_name" name="org_name" required>
-            </tr><br><br>
-            <tr><label for="n" id="lab2">Number of Repositories (n) : </label>
-                <input class="in" type="text" id="n" name="n" required>
-            </tr><br><br>
-            <tr><label for="m" id="lab3">Number of Forks (m): </label>
-                <input class="in" type="text" id="m" name="m" required>
-            </tr><br><br>
-            <input type="submit" id="subm" value="Submit and Proceed →" class="sub">
-        </form>
-
+    <div class="container mt-5">
+        <!-- <h2 class="blue text-center">A web app to extract top repositories of a given organization from GitHub and find oldest forks among them.</h2> -->
+        <div class="bg-warning py-4">
+            <!-- <h3 class="text-right mb-4"><i> A web app by Ayushmaan Pandey</i></h3> -->
+            <!-- <hr class="mb-4"> -->
+            <form method="POST" action="/result">
+                <h1 class="red">Github Repo and Fork Getter</h1>
+                <h3 class="blue text-center">A web app to extract top 'n' repositories of a given organization from GitHub and find the 'm' oldest forks among them.</h3>
+                <div class="form-group">
+                    <label for="org_name">Organization Name:</label>
+                    <input class="form-control" type="text" id="org_name" name="org_name" required>
+                </div>
+                <div class="form-group">
+                    <label for="n">Number of Repositories (n):</label>
+                    <input class="form-control" type="text" id="n" name="n" required>
+                </div>
+                <div class="form-group">
+                    <label for="m">Number of Forks (m):</label>
+                    <input class="form-control" type="text" id="m" name="m" required>
+                </div>
+                <button type="submit" class="btn btn-danger btn-block">Submit and Proceed →</button>
+            </form>
+        </div>
     </div>
+
+    <!-- Bootstrap JavaScript libraries (jQuery and Popper.js) -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <!-- Bootstrap JS -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     <script>
-
-        let lab1 = document.getElementById("lab1");
-
-        let lab2 = document.getElementById("lab2");
-        let lab3 = document.getElementById("lab3");
-
-        let Width = lab2.offsetWidth;
-
-        in1 = document.getElementById("org_name");
-        in2 = document.getElementById("n");
-        in3 = document.getElementById("m");
-
-        function resizee() {
-            let screenwidth = window.innerWidth;
-            //  screenwidth=screenwidth*0.15;
-
-            if (Width * 2 + 0.15 * screenwidth < screenwidth) {
-                Width = 0.4 * screenwidth;
-            } lab1.style.width = `${Width}px`;
-            lab2.style.width = `${Width}px`;
-            lab3.style.width = `${Width}px`;
-            in1.style.width = `${Width}px`;
-            in2.style.width = `${Width}px`;
-            in3.style.width = `${Width}px`;
-        }
-        resizee();
-        window.onresize = resizee;
-        //     inp.style.float = "right";
-
-
+        // Your custom JavaScript here
+        // ...
     </script>
 </body>
 
