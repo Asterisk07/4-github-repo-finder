@@ -115,5 +115,5 @@ def  getRepo():
 
 if __name__ == '__main__':
     # turn this off tk
-    app.run(debug=True)
+    app.run(debug=False)
     
